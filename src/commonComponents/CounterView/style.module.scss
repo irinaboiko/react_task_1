@@ -1,3 +1,19 @@
+.linkButton {
+  color: white;
+  background-color: #732acd;
+  border: none;
+  border-radius: 30px;
+  transition: all .3s;
+  padding: 10px;
+  margin: 10px 0;
+
+  &:hover {
+    cursor: pointer;
+    opacity: .5;
+    transition: all .3s;
+  }
+}
+
 .wrapper {
   max-width: 800px;
   width: 100%;
