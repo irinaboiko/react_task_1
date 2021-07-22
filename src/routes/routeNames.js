@@ -1,5 +1,6 @@
 export const ROUTES = {
   HOME_PAGE: '/',
   CLASS_COUNTER_PAGE: '/classCounter',
-  FUNCTIONAL_COUNTER_PAGE: '/functionalCounter',
+  SIMPLE_FUNC_COUNTER_PAGE: '/simpleCounter',
+  COUNTER_OF_COUNTERS_PAGE: '/counterOfCounters'
 }

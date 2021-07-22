@@ -1,0 +1,27 @@
+.counterWrapper {
+  border: 1px solid #c3b9b9;
+  padding: 10px 20px;
+  margin-bottom: 40px;
+}
+
+.buttonsWrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.button {
+  font-size: 26px;
+  color: #732acd;
+  background-color: transparent;
+  border: 1px solid #732acd;
+  border-radius: 30px;
+  transition: all .3s;
+  padding: 15px;
+  margin: 10px 0;
+
+  &:hover {
+    cursor: pointer;
+    opacity: .5;
+    transition: all .3s;
+  }
+}

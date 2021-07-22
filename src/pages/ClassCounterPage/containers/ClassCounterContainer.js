@@ -39,7 +39,7 @@ class ClassCounterContainer extends Component {
     }
   }
 
-  resetCounter = () => {
+  handleReset = () => {
     this.setState({
       countValue: 0,
       parityType: 'even'
@@ -53,7 +53,7 @@ class ClassCounterContainer extends Component {
         handleIncrement={this.handleIncrement}
         handleDecrement={this.handleDecrement}
         parityType={this.state.parityType}
-        resetCounter={this.resetCounter}
+        handleReset={this.handleReset}
       />
     );
   }

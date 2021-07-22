@@ -5,7 +5,7 @@ import {ROUTES} from "../../routes/routeNames";
 
 import styles from './style.module.scss';
 
-const CounterView = ({countValue, parityType, handleIncrement, handleDecrement, resetCounter}) => {
+const CounterView = ({countValue, parityType, handleIncrement, handleDecrement, handleReset}) => {
   return (
     <div>
       <div>
@@ -16,11 +16,12 @@ const CounterView = ({countValue, parityType, handleIncrement, handleDecrement, 
       <div className={styles.wrapper}>
         <div className={styles.display}>{countValue}</div>
         <div className={styles.display}>
-          {/*{
-            parityType === 'even'
+          {
+            /*parityType === 'even'
               ? <div className={styles.even}>Введено четное число</div>
-              : <div className={styles.odd}>Введено нечетное число</div>
-          }*/
+              : <div className={styles.odd}>Введено нечетное число</div>*/
+          }
+          {
             countValue % 2
               ? <div className={styles.odd}>Введено нечетное число</div>
               : <div className={styles.even}>Введено четное число</div>
@@ -28,7 +29,7 @@ const CounterView = ({countValue, parityType, handleIncrement, handleDecrement, 
         </div>
         <div className={styles.buttonsWrapper}>
           <button onClick={handleDecrement} className={`${styles.button} ${styles.btnAction}`}>-</button>
-          <button onClick={resetCounter} className={`${styles.button} ${styles.btnReset}`}>Reset</button>
+          <button onClick={handleReset} className={`${styles.button} ${styles.btnReset}`}>Reset</button>
           <button onClick={handleIncrement} className={`${styles.button} ${styles.btnAction}`}>+</button>
         </div>
       </div>
@@ -41,7 +42,7 @@ CounterView.propTypes = {
   parityType: PropTypes.string.isRequired,
   handleIncrement: PropTypes.func.isRequired,
   handleDecrement: PropTypes.func.isRequired,
-  resetCounter: PropTypes.func.isRequired,
+  handleReset: PropTypes.func.isRequired,
 };
 
-export default CounterView;
+export default React.memo(CounterView);

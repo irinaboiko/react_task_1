@@ -3,7 +3,7 @@ import styles from './style.module.scss';
 
 const HomePageLayout = () => {
   return (
-    <h1>Home Page</h1>
+    <h1 className={styles.capture}>Home Page</h1>
   );
 };
 
