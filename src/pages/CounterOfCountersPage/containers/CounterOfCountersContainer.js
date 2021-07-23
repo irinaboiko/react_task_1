@@ -1,20 +1,41 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useCallback, useMemo, useState} from 'react';
 
 import CounterOfCountersLayout from "../components/CounterOfCountersLayout";
 
-import mockCounters from "../config/mockCounters";
-
 const CounterOfCountersContainer = () => {
-  const [countersList, setCountersList] = useState(mockCounters);
+  const [countersList, setCountersList] = useState([]);
 
-  useEffect(() => {
-
+  const handleIncrement = useCallback((index) => {
+    const countersListCopy = [...countersList];
+    countersListCopy[index].countValue = countersListCopy[index].countValue + 1;
+    setCountersList(countersListCopy);
   }, [countersList]);
 
+  const handleDecrement = useCallback((index) => {
+    if (countersList[index].countValue > 0) {
+      const countersListCopy = [...countersList];
+      countersListCopy[index].countValue = countersListCopy[index].countValue - 1;
+      setCountersList(countersListCopy);
+    }
+  }, [countersList]);
 
+  const handleReset = useCallback((index) => {
+    const countersListCopy = [...countersList];
+    countersListCopy[index].countValue = 0;
+    setCountersList(countersListCopy);
+  }, [countersList]);
+
+  const parityType = useMemo(() => {
+    return countersList.countValue % 2 ? 'odd' : 'even';
+  }, [countersList.countValue]);
 
   const handleAdd = useCallback(() => {
     const countersListCopy = [...countersList];
+    countersListCopy.map((counter) => {
+      if (!(counter.countValue % 2)) {
+        counter.countValue = counter.countValue + 1;
+      }
+    })
     countersListCopy.push({
       countValue: 0
     });
@@ -24,16 +45,17 @@ const CounterOfCountersContainer = () => {
   const handleRemove = useCallback(() => {
     const countersListCopy = [...countersList];
     countersListCopy.pop();
+    countersListCopy.map((counter) => {
+      if (counter.countValue % 2) {
+        counter.countValue = counter.countValue - 1;
+      }
+    })
     setCountersList(countersListCopy);
   }, [countersList]);
 
-  const handleReset = useCallback(() => {
+  const handleResetCounters = useCallback(() => {
     setCountersList([]);
   }, [countersList]);
-
-  const counterRemove = useCallback((index) => {
-    console.log(index);
-  }, []);
 
   return (
     <div>
@@ -41,8 +63,11 @@ const CounterOfCountersContainer = () => {
         countersList={countersList}
         onAddButtonClick={handleAdd}
         onRemoveButtonClick={handleRemove}
-        onResetButtonClick={handleReset}
-        counterRemove={counterRemove}
+        onResetButtonClick={handleResetCounters}
+        handleIncrement={handleIncrement}
+        handleDecrement={handleDecrement}
+        handleReset={handleReset}
+        parityType={parityType}
       />
     </div>
 
