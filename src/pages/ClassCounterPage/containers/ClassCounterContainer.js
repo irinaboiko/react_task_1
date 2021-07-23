@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import CounterView from "../../../commonComponents/CounterView";
 
 class ClassCounterContainer extends Component {
@@ -7,14 +7,7 @@ class ClassCounterContainer extends Component {
 
     this.state = {
       countValue: 0,
-      parityType: 'even'
-    }
-  }
-
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    if (prevState.countValue !== this.state.countValue) {
-      this.setState({parityType: this.state.countValue % 2 ? 'odd' : 'even'})
-    }
+    };
   }
 
   handleIncrement = () => {
@@ -22,10 +15,10 @@ class ClassCounterContainer extends Component {
       const incrementedValue = state.countValue + 1;
 
       return {
-        countValue: incrementedValue
-      }
-    })
-  }
+        countValue: incrementedValue,
+      };
+    });
+  };
 
   handleDecrement = () => {
     if (this.state.countValue > 0) {
@@ -33,18 +26,17 @@ class ClassCounterContainer extends Component {
         const decrementedValue = state.countValue - 1;
 
         return {
-          countValue: decrementedValue
-        }
-      })
+          countValue: decrementedValue,
+        };
+      });
     }
-  }
+  };
 
   handleReset = () => {
     this.setState({
       countValue: 0,
-      parityType: 'even'
-    })
-  }
+    });
+  };
 
   render() {
     return (
@@ -52,7 +44,6 @@ class ClassCounterContainer extends Component {
         countValue={this.state.countValue}
         handleIncrement={this.handleIncrement}
         handleDecrement={this.handleDecrement}
-        parityType={this.state.parityType}
         handleReset={this.handleReset}
       />
     );

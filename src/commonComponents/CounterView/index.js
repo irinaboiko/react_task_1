@@ -1,11 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import {Link} from "react-router-dom";
-import {ROUTES} from "../../routes/routeNames";
+import React, { useMemo } from "react";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import { ROUTES } from "../../routes/routeNames";
 
-import styles from './style.module.scss';
+import styles from "./style.module.scss";
 
-const CounterView = ({countValue, parityType, handleIncrement, handleDecrement, handleReset}) => {
+const CounterView = ({
+  countValue,
+  handleIncrement,
+  handleDecrement,
+  handleReset,
+}) => {
+  const isValueEven = useMemo(() => countValue % 2 === 0, [countValue]);
   return (
     <div>
       <div>
@@ -16,21 +22,31 @@ const CounterView = ({countValue, parityType, handleIncrement, handleDecrement, 
       <div className={styles.wrapper}>
         <div className={styles.display}>{countValue}</div>
         <div className={styles.display}>
-          {
-            /*parityType === 'even'
-              ? <div className={styles.even}>Введено четное число</div>
-              : <div className={styles.odd}>Введено нечетное число</div>*/
-          }
-          {
-            countValue % 2
-              ? <div className={styles.odd}>Введено нечетное число</div>
-              : <div className={styles.even}>Введено четное число</div>
-          }
+          {!isValueEven ? (
+            <div className={styles.odd}>Введено нечетное число</div>
+          ) : (
+            <div className={styles.even}>Введено четное число</div>
+          )}
         </div>
         <div className={styles.buttonsWrapper}>
-          <button onClick={handleDecrement} className={`${styles.button} ${styles.btnAction}`}>-</button>
-          <button onClick={handleReset} className={`${styles.button} ${styles.btnReset}`}>Reset</button>
-          <button onClick={handleIncrement} className={`${styles.button} ${styles.btnAction}`}>+</button>
+          <button
+            onClick={handleDecrement}
+            className={`${styles.button} ${styles.btnAction}`}
+          >
+            -
+          </button>
+          <button
+            onClick={handleReset}
+            className={`${styles.button} ${styles.btnReset}`}
+          >
+            Reset
+          </button>
+          <button
+            onClick={handleIncrement}
+            className={`${styles.button} ${styles.btnAction}`}
+          >
+            +
+          </button>
         </div>
       </div>
     </div>
@@ -39,7 +55,6 @@ const CounterView = ({countValue, parityType, handleIncrement, handleDecrement, 
 
 CounterView.propTypes = {
   countValue: PropTypes.number.isRequired,
-  parityType: PropTypes.string.isRequired,
   handleIncrement: PropTypes.func.isRequired,
   handleDecrement: PropTypes.func.isRequired,
   handleReset: PropTypes.func.isRequired,
