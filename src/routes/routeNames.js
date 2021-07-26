@@ -4,4 +4,5 @@ export const ROUTES = {
   SIMPLE_FUNC_COUNTER_PAGE: "/simpleCounter",
   COUNTER_OF_COUNTERS_PAGE: "/counterOfCounters",
   FORM: "/form",
+  REDUX: "/redux",
 };

@@ -1,11 +1,12 @@
 import React from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { ROUTES } from "./routeNames";
 import ClassCounterContainer from "../pages/ClassCounterPage/containers/ClassCounterContainer";
 import HomePageContainer from "../pages/HomePage/container/HomePageContainer";
 import FunctionalCounterContainer from "../pages/FunctionalCounterPage/containers/FunctionalCounterContainer";
 import CounterOfCountersContainer from "../pages/CounterOfCountersPage/containers/CounterOfCountersContainer";
 import FormPageContainer from "../pages/Forms/containers/FormContainer";
+import ReduxCounterManagerContainer from "../pages/ReduxCounterManagerPage/containers/ReduxCounterManagerContainer";
 
 const Routes = () => {
   return (
@@ -27,6 +28,11 @@ const Routes = () => {
         component={CounterOfCountersContainer}
       />
       <Route exact path={ROUTES.FORM} component={FormPageContainer} />
+      <Route
+        exact
+        path={ROUTES.REDUX}
+        component={ReduxCounterManagerContainer}
+      />
       <Route component={HomePageContainer} />
     </Switch>
   );
