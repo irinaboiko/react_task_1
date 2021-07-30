@@ -5,4 +5,5 @@ export const ROUTES = {
   COUNTER_OF_COUNTERS_PAGE: "/counterOfCounters",
   FORM: "/form",
   REDUX: "/redux",
+  ASYNC: "/async",
 };

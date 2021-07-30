@@ -7,6 +7,7 @@ import FunctionalCounterContainer from "../pages/FunctionalCounterPage/container
 import CounterOfCountersContainer from "../pages/CounterOfCountersPage/containers/CounterOfCountersContainer";
 import FormPageContainer from "../pages/Forms/containers/FormContainer";
 import ReduxCounterManagerContainer from "../pages/ReduxCounterManagerPage/containers/ReduxCounterManagerContainer";
+import AsyncOperationsPageContainer from "../pages/AsyncOperationsPage/containers/AsyncOperationsPage";
 
 const Routes = () => {
   return (
@@ -32,6 +33,11 @@ const Routes = () => {
         exact
         path={ROUTES.REDUX}
         component={ReduxCounterManagerContainer}
+      />
+      <Route
+        exact
+        path={ROUTES.ASYNC}
+        component={AsyncOperationsPageContainer}
       />
       <Route component={HomePageContainer} />
     </Switch>
