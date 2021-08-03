@@ -8,6 +8,7 @@ import CounterOfCountersContainer from "../pages/CounterOfCountersPage/container
 import FormPageContainer from "../pages/Forms/containers/FormContainer";
 import ReduxCounterManagerContainer from "../pages/ReduxCounterManagerPage/containers/ReduxCounterManagerContainer";
 import AsyncOperationsPageContainer from "../pages/AsyncOperationsPage/containers/AsyncOperationsPage";
+import PokemonPageContainer from "../pages/PokemonDetailsPage/containers/PokemonDetailsPage";
 
 const Routes = () => {
   return (
@@ -36,8 +37,13 @@ const Routes = () => {
       />
       <Route
         exact
-        path={ROUTES.ASYNC}
+        path={ROUTES.POKEMONS_PAGE}
         component={AsyncOperationsPageContainer}
+      />
+      <Route
+        exact
+        path={ROUTES.POKEMON_DETAILS}
+        component={PokemonPageContainer}
       />
       <Route component={HomePageContainer} />
     </Switch>

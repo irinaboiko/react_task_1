@@ -14,12 +14,14 @@ const pokemonPageReducer = handleActions(
       ...state,
       isLoading: true,
     }),
-    [actions.GET_POKEMON_SUCCESS]: (state, payload) => ({
-      ...state,
-      isLoading: false,
-      pokeList: payload,
-    }),
-    [actions.GET_POKEMON_FAIL]: (state, payload) => ({
+    [actions.GET_POKEMON_SUCCESS]: (state, { payload }) => {
+      return {
+        ...state,
+        isLoading: false,
+        pokeList: payload.response.results,
+      };
+    },
+    [actions.GET_POKEMON_FAIL]: (state, { payload }) => ({
       ...state,
       isLoading: false,
       errors: payload,

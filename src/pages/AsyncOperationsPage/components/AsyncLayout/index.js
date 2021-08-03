@@ -1,15 +1,32 @@
-import PropTypes from "prop-types";
+import { CircularProgress, Backdrop } from "@material-ui/core";
 
-const AsyncOperationPageLayout = ({ pokemons }) => {
+const AsyncOperationPageLayout = ({
+  pokemons,
+  handleGoToPokemonDetails,
+  isLoading,
+}) => {
   return (
     <div>
-      {pokemons.map((pokemon) => (
-        <div key={pokemon.name}>{pokemon.name}</div>
-      ))}
+      <Backdrop open={isLoading}>
+        <CircularProgress color="inherit" />
+      </Backdrop>
+
+      <div>
+        {pokemons.map((pokemon) => {
+          return (
+            <div
+              key={pokemon.name}
+              onClick={() => {
+                handleGoToPokemonDetails(pokemon.name);
+              }}
+            >
+              {pokemon.name}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
-
-AsyncOperationPageLayout.propTypes = {};
 
 export default AsyncOperationPageLayout;

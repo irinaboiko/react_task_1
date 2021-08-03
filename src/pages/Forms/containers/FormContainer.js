@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useMemo } from "react";
+import React, { useCallback, useMemo } from "react";
 import Form from "../components/Form";
 import { useForm } from "../../../hooks";
 
@@ -12,7 +12,6 @@ const FormPageContainer = () => {
   const handleSubmit = useCallback(
     (event) => {
       event.preventDefault();
-      console.log(formValues);
     },
     [formValues]
   );
@@ -44,7 +43,6 @@ const FormPageContainer = () => {
   const handleSubmit = useCallback(
     (event) => {
       event.preventDefault();
-      console.log(formValues);
     },
     [formValues]
   );*/

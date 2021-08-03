@@ -5,5 +5,6 @@ export const ROUTES = {
   COUNTER_OF_COUNTERS_PAGE: "/counterOfCounters",
   FORM: "/form",
   REDUX: "/redux",
-  ASYNC: "/async",
+  POKEMONS_PAGE: "/pokemons",
+  POKEMON_DETAILS: "/pokemons/:pokemonName",
 };
